@@ -32,6 +32,7 @@ fi
 
 genchanges=""
 build_source=""
+multi_package=""
 
 ### check for run in fakeroot
 
@@ -84,6 +85,7 @@ The following options are recognized:
   --changes          create a .changes file
   --revision         add debian revision
   --source           build a source package instead of a binary deb package
+  --multi            build distinct packages for each update of a release
 
   --help             display this help and exit
   --version          output version information and exit
@@ -131,6 +133,8 @@ while [[ $# -gt 0 && "x$1" == x--* ]]; do
     genchanges="true"
     elif [[ "x$1" == x--source ]]; then
     build_source="true"
+    elif [[ "x$1" == x--multi ]]; then
+    multi_package="true"
     else
     unrecognized_option "$1"
     fi
