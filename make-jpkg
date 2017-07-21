@@ -87,6 +87,7 @@ The following options are recognized:
   --changes            create a .changes file
   --revision           add debian revision
   --source             build a source package instead of a binary deb package
+  --multi              build distinct packages for each update of a release
   --with-system-certs  integrate with the system's keystore
   --jce-policy FILE    Replace cryptography files with versions from FILE
 
@@ -148,6 +149,8 @@ while [[ $# -gt 0 && "x$1" == x--* ]]; do
     genchanges="true"
     elif [[ "x$1" == x--source ]]; then
     build_source="true"
+    elif [[ "x$1" == x--multi ]]; then
+    multi_package="true"
     elif [[ "x$1" == x--with-system-certs ]]; then
     create_cert_softlinks="true"
     else

@@ -106,7 +106,11 @@ EOF
       fi
       oracle_jre_lib_hl="jexec"
       oracle_bin_jdk="appletviewer extcheck idlj jar jarsigner javac javadoc javah javap jcmd jconsole jdb jdeps jhat jinfo jmap jmc jps jrunscript jsadebugd jstack jstat jstatd jvisualvm native2ascii rmic schemagen serialver wsgen wsimport xjc"
-      j2se_package="$j2se_vendor-java$j2se_release-jdk"
+      if [ -n "$multi_package" ]; then
+        j2se_package="$j2se_vendor-java$j2se_version-jdk"
+      else
+	j2se_package="$j2se_vendor-java$j2se_release-jdk"
+      fi
       j2se_run
     fi
   fi

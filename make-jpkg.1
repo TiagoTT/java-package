@@ -61,6 +61,10 @@ add debian revision
 .B --source
 build a source package instead of a binary deb package
 .TP
+.B --multi
+Build distinct packages for each update of a release by adding the Java update
+number to the package name and the installation directories.
+.TP
 .B --with-system-certs
 Replace the JVMs keystore with a softlink to the system's keystore,
 (/etc/ssl/certs/java/cacerts) which is managed automatically by the

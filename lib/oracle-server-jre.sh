@@ -80,7 +80,11 @@ EOF
       oracle_jre_bin_hl="java keytool orbd pack200 rmid rmiregistry servertool tnameserv unpack200 policytool"
       oracle_jre_bin_jre="policytool"
       oracle_jre_lib_hl="jexec"
-      j2se_package="$j2se_vendor-java$j2se_release-server-jre"
+      if [ -n "$multi_package" ]; then
+        j2se_package="$j2se_vendor-java$j2se_version-server-jre"
+      else
+        j2se_package="$j2se_vendor-java$j2se_release-server-jre"
+      fi
       exlude_libs="appletviewer libawt_xawt.so libsplashscreen.so policytool"
       j2se_run
     fi

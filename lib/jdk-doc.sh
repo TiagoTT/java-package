@@ -38,8 +38,13 @@ j2sdk_doc_run() {
     diskfree "$j2se_required_space"
     read_maintainer_info
     get_distribution
-    j2se_package="$j2se_vendor-java$j2se_release-doc"
-    j2se_name="$j2se_package"
+    if [ -n "$multi_package" ]; then
+        j2se_package="$j2se_vendor-java$j2se_version-doc"
+        j2se_name="jdk$j2se_version-$j2se_vendor-doc"
+    else
+        j2se_package="$j2se_vendor-java$j2se_release-doc"
+        j2se_name="jdk$j2se_release-$j2se_vendor-doc"
+    fi
     local target="$package_dir/$j2se_name"
     install -d -m 755 "$( dirname "$target" )"
     extract_bin "$archive_path" "$j2se_expected_min_size" "$target"
