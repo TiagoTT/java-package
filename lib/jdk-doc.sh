@@ -38,9 +38,9 @@ j2sdk_doc_run() {
     diskfree "$j2se_required_space"
     read_maintainer_info
     get_distribution
-    if [ -n "$multi_package" ]; then
-        j2se_package="$j2se_vendor-java$j2se_version-doc"
-        j2se_name="jdk$j2se_version-$j2se_vendor-doc"
+    if [ -n "$multi_update" ]; then
+        j2se_package="$j2se_vendor-java${j2se_version%$revision}-doc"
+        j2se_name="jdk${j2se_version%$revision}-$j2se_vendor-doc"
     else
         j2se_package="$j2se_vendor-java$j2se_release-doc"
         j2se_name="jdk$j2se_release-$j2se_vendor-doc"

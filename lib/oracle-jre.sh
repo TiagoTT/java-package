@@ -81,8 +81,8 @@ EOF
       oracle_jre_bin_jre="javaws policytool"
       oracle_no_man_jre_bin_jre="ControlPanel jcontrol"
       oracle_jre_lib_hl="jexec"
-      if [ -n "$multi_package" ]; then
-        j2se_package="$j2se_vendor-java$j2se_version-jre"
+      if [ -n "$multi_update" ]; then
+        j2se_package="$j2se_vendor-java${j2se_version%$revision}-jre"
       else
         j2se_package="$j2se_vendor-java$j2se_release-jre"
       fi
